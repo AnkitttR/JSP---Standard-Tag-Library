@@ -1,7 +1,7 @@
-# JSP---Standard-Tag-Library
+# JSP---Standard-Tag-Library (For form confirmation)
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-Support for Spring MVC Form Tags
+Support for Spring MVC Form Tags (For making form)
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
