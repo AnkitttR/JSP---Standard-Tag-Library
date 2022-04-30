@@ -1,0 +1,29 @@
+********************************Updating in database**************************************************************** 
+
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerController.saveCustomer(..)     //Hey CustomerController please call saveCustomer(..) to save updated details of Raghav Ram.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=9, firstName=Raghav, lastName=Ram, email=raja@gmail.com]  //Updated details is caught by argument.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerService.saveCustomer(..)        //Hey CustomerService please call saveCustomer(..) to save updated details of Raghav Ram.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=9, firstName=Raghav, lastName=Ram, email=raja@gmail.com]  //Updated details is still with argument, not saved yet in database.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerDAO.saveCustomer(..)           //Hey CustomerDAO please call saveCustomer(..) to save updated details of Raghav Ram.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=9, firstName=Raghav, lastName=Ram, email=raja@gmail.com]
+Hibernate: update customer set email=?, first_name=?, last_name=? where id=?     //Finally updated details of Raghav Ram is saved in database.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+
+*********************************Extracting from database****************************************************
+
+INFO: =====>> in @Before: calling method: CustomerController.listCustomers(..)   //Hey CustomerController please call listCustomers(..) to show details of customers.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: {}                                                        //Argument is again empty, as not data to save in database.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerService.getCustomers()         //Hey CustomerService please call getCustomers() to get details of customers.
+Apr 30, 2022 12:21:03 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerDAO.getCustomers()             //Hey CustomerDAO please call getCustomers() to get details of customers.
+Hibernate: select customer0_.id as id1_0_, customer0_.email as email2_0_,
+customer0_.first_name as first_na3_0_, customer0_.last_name as last_nam4_0_      //Finally data is extracted from database.
+from customer customer0_ order by customer0_.last_name
