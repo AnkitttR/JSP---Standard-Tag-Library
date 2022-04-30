@@ -1,0 +1,17 @@
+Apr 30, 2022 11:38:55 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerController.showFormForAdd(..)  //Hey CustomerController please call showFormForAdd(..) method to enter details of Radha Rani.
+Apr 30, 2022 11:38:55 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: {}                                                        //Abhi argument khali hai.
+Apr 30, 2022 11:39:18 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerController.saveCustomer(..)    //Hey CustomerController please call saveCustomer(..) method to save customer.
+Apr 30, 2022 11:39:18 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=0, firstName=Radha, lastName=Rani, email=radha@gmail.com]
+Apr 30, 2022 11:39:18 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerService.saveCustomer(..)        //Hey CustomerService please call saveCustomer(..) to save customer.
+Apr 30, 2022 11:39:18 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=0, firstName=Radha, lastName=Rani, email=radha@gmail.com]
+Apr 30, 2022 11:39:18 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerDAO.saveCustomer(..)            //Hey CustomerDAO please call saveCustomer(..) to save customer.
+Apr 30, 2022 11:39:18 AM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=0, firstName=Radha, lastName=Rani, email=radha@gmail.com]
+Hibernate: insert into customer (email, first_name, last_name) values (?, ?, ?)   //Saving in database by the help of hibernate.
