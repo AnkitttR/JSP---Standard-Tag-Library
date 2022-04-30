@@ -1,0 +1,42 @@
+// setup pointcut declarations
+	@Pointcut("execution(* com.luv2code.springdemo.controller.*.*(..))")    //First PointCut Expression
+	private void forControllerPackage() {}
+	
+	//do the same for service and dao
+	@Pointcut("execution(* com.luv2code.springdemo.service.*.*(..))")       //Second PointCut Expression
+	private void forServicePackage() {}
+	
+	@Pointcut("execution(* com.luv2code.springdemo.dao.*.*(..))")           //Third PointCut Expression
+	private void forDaoPackage() {}
+	
+	@Pointcut("forControllerPackage() || forServicePackage() || forDaoPackage()")          //Three pointcut expression combined by or operator.
+	private void forAppFlow() {}
+	
+	// add @Before advice
+	@Before ("forAppFlow()")
+	public void before(JoinPoint theJoinPoint) {                       //To get the method signature
+  
+  
+  //display method we are calling
+		String theMethod = theJoinPoint.getSignature().toShortString();
+		myLogger.info("=====>> in @Before: calling method: " + theMethod); 
+    
+  ***************************************************Console Output**********************************************************************
+    
+    Apr 30, 2022 12:17:12 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerController.showFormForAdd(..)          //Line 22 applied here
+Apr 30, 2022 12:17:12 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: {}
+Apr 30, 2022 12:17:31 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerController.saveCustomer(..)            //Line 22 applied here
+Apr 30, 2022 12:17:31 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=0, firstName=Raja, lastName=Ram, email=raja@gmail.com]
+Apr 30, 2022 12:17:31 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerService.saveCustomer(..)               //Line 22 applied here
+Apr 30, 2022 12:17:31 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=0, firstName=Raja, lastName=Ram, email=raja@gmail.com]
+Apr 30, 2022 12:17:31 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: =====>> in @Before: calling method: CustomerDAO.saveCustomer(..)                   //Line 22 applied here
+Apr 30, 2022 12:17:31 PM com.luv2code.springdemo.aspect.CRMLoggingAspect before
+INFO: ====>> argument: Customer [id=0, firstName=Raja, lastName=Ram, email=raja@gmail.com]
+    
