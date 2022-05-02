@@ -5,3 +5,6 @@
 Support for Spring MVC Form Tags (For making form)
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+Spring MVC - Security Tag
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
